@@ -60,7 +60,7 @@ This script is designed for the game Not Pixel.
   [Source code of the script](https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-AutoFarm-EN.user.js).
 
 ### 5. Running the Bot
-- Open [Not Pixel Bot](https://web.telegram.org/k/#tgaddr=tg://resolve?domain=notpixel&appname=app&startapp=f2001120886) and start the game.
+- Open [Not Pixel Bot](https://web.telegram.org/k/#?tgaddr=tg%3A%2F%2Fresolve%3Fdomain%3Dnotpixel%26appname%3Dapp%26startapp%3Df2001120886) and start the game.
 
 ## Conclusion
 
