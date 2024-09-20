@@ -60,7 +60,7 @@
   [Исходный код скрипта](https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-AutoFarm.user.js).
 
 ### 5. Запуск бота
-- Откройте [Бота Not Pixel](https://web.telegram.org/k/#tgaddr=tg://resolve?domain=notpixel&appname=app&startapp=f2001120886) и запустите игру.
+- Откройте [Бота Not Pixel](https%3A//web.telegram.org/k/%23tgaddr%3Dtg%3A//resolve%3Fdomain%3Dnotpixel%26appname%3Dapp%26startapp%3Df2001120886) и запустите игру.
 
 ## Заключение
 
