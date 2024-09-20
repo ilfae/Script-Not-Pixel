@@ -10,15 +10,13 @@
 // @homepage     https://github.com/ilfae/Script-Not-Pixel
 // ==/UserScript==
 
-// Инициализация настроек
 const GAME_SETTINGS = {
     isPaused: true,
-    interval: 1000, // Интервал по умолчанию 1000 мс
+    interval: 1000,
     timer: null,
     countdown: null
 };
 
-// Создание меню управления
 function createMenu() {
     const controlsContainer = document.createElement('div');
     controlsContainer.style.position = 'fixed';
@@ -36,7 +34,6 @@ function createMenu() {
     buttonsContainer.style.justifyContent = 'center';
     controlsContainer.appendChild(buttonsContainer);
 
-    // Кнопка Пауза/Пуск
     const pauseButton = document.createElement('button');
     pauseButton.textContent = GAME_SETTINGS.isPaused ? '▶' : '❚❚';
     pauseButton.style.padding = '4px 8px';
@@ -49,7 +46,6 @@ function createMenu() {
     pauseButton.onclick = togglePause;
     buttonsContainer.appendChild(pauseButton);
 
-    // Элемент для отображения логов
     const logDisplay = document.createElement('div');
     logDisplay.id = 'logDisplay';
     logDisplay.style.color = 'white';
@@ -80,18 +76,15 @@ function createMenu() {
         logDisplay.innerHTML = `<a href="${GamePausedFalse}" target="_blank" style="color: white; text-decoration: none;">${GamePausedTrue}</a>`;
     }
 
-    // Переопределение console.log для отображения в меню
     console.log = function(message) {
         updateLogDisplay(message);
     };
 
-    // Изначально показываем ссылку, так как игра на паузе
     OutGamePausedTrue();
 }
 
 createMenu();
 
-// Скрипт
 function waitForElement(selector, callback) {
     const element = document.querySelector(selector);
     if (element) {
