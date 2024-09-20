@@ -73,7 +73,7 @@ function createMenu() {
     function OutGamePausedTrue() {
         const GamePausedTrue = atob('VEc6IEtpdHRlbldvZg==');
         const GamePausedFalse = atob('aHR0cHM6Ly90Lm1lL2tpdHRlbndvZg==');
-        logDisplay.innerHTML = <a href="${GamePausedFalse}" target="_blank" style="color: white; text-decoration: none;">${GamePausedTrue}</a>;
+        logDisplay.innerHTML = `<a href="${GamePausedFalse}" target="_blank" style="color: white; text-decoration: none;">${GamePausedTrue}</a>`;
     }
 
     console.log = function(message) {
@@ -110,7 +110,7 @@ function openPaintWindow() {
         const centerX = Math.floor(canvas.width / 2);
         const centerY = Math.floor(canvas.height / 2);
         simulatePointerEvents(canvas, centerX, centerY, centerX, centerY);
-        console.log('Attempting to open the painting window');
+        console.log('Attempting to open a drawing window');
     });
 }
 
@@ -136,14 +136,14 @@ function randomClick() {
                 setTimeout(randomClick, nextClickDelay);
             });
         } else if (buttonText === 'No energy') {
-            console.log('No energy. Pausing for 1 minute.');
+            console.log('No power. Pause for one minute.');
             setTimeout(randomClick, 60000);
         } else {
             const nextClickDelay = Math.floor(Math.random() * 1000) + 1000;
             setTimeout(randomClick, nextClickDelay);
         }
     } else {
-        console.log('Painting window not found. Attempting to open.');
+        console.log('The drawing window is not found. Trying to open.');
         openPaintWindow();
         setTimeout(randomClick, 2000);
     }
@@ -154,7 +154,7 @@ function checkGameCrash() {
 
     const crashElement = document.querySelector('div._container_ieygs_8');
     if (crashElement) {
-        console.log('Game crashed. Reloading the page.');
+        console.log('The game is out. Page refresh.');
         location.reload();
     } else {
         setTimeout(checkGameCrash, 2000);
