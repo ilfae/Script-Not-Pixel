@@ -68,4 +68,5 @@
 
 ### 🌟 История звезд
 
-[![Star History Chart](https://api.star-history.com/svg?repos=ilfae/ClickerGameAll&type=Date)](https://star-history.com/#ilfae/ClickerGameAll&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=ilfae/Script-Not-Pixel&type=Date)](https://star-history.com/#ilfae/Script-Not-Pixel&Date)
+## Star History
