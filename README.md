@@ -5,8 +5,7 @@
 - **Binance ID** (KittenWoof): `280906050`
 - **Tron** (TRC20): `TDgpGjUPY7V2wrstA74Uq3B7b8BkmvС1zW`
 - **BNB/Ethereum** (BEP20/ERC20): `0x06594b75f08cacc789bc59daf2a4c866265fac77`
-> **TON/NOT/DOGS**: `EQD5mxRgCuRNLxKxeOjG6r14iSroLF5FtomPnet-sgP5xNJb`
-> MEMO: 106604145
+-  **TON/NOT/DOGS**: `EQD5mxRgCuRNLxKxeOjG6r14iSroLF5FtomPnet-sgP5xNJb` MEMO: `106604145`
 
 Пожертвования будут использованы для поддержания/сохранения проекта.
 
