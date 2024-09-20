@@ -53,11 +53,11 @@ This script is designed for the game Not Pixel.
   
   ![Installing the script](https://github.com/ilfae/Script-Not-Pixel/blob/main/img/1.png)
 
-- Import [this zip archive](https://github.com/ilfae/Script-Not-Pixel/raw/refs/heads/main/@kittenwof.zip) into Violentmonkey BETA.
+- Import [this zip archive](https://github.com/ilfae/Script-Not-Pixel/raw/refs/heads/main/EN@kittenwof.zip) into Violentmonkey BETA.
 
 #### 4.2 Windows or Mac
 - Click the link for automatic script installation:
-  [Source code of the script](https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-AutoFarm.user.js).
+  [Source code of the script](https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-AutoFarm-EN.user.js).
 
 ### 5. Running the Bot
 - Open [Not Pixel Bot](https://web.telegram.org/k/#tgaddr=tg://resolve?domain=notpixel&appname=app&startapp=f2001120886) and start the game.
