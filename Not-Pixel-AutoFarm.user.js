@@ -5,8 +5,8 @@
 // @version      1.1
 // @grant        KittenWoof
 // @icon         https://notpx.app/favicon.ico
-// @downloadURL  https://github.com/ilfae/Script-Not-Pixel/raw/main/not-autoclicker.user.js
-// @updateURL    https://github.com/ilfae/Script-Not-Pixel/raw/main/not-autoclicker.user.js
+// @downloadURL  https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-AutoFarm.user.js
+// @updateURL    https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-AutoFarm.user.js
 // @homepage     https://github.com/ilfae/Script-Not-Pixel
 // ==/UserScript==
 
