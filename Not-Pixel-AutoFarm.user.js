@@ -32,8 +32,8 @@ function createMenu() {
 
     const buttonsContainer = document.createElement('div');
     buttonsContainer.style.display = 'flex';
-    buttonsContainer.style.flexDirection = 'column'; // Вертикальное расположение кнопок
-    buttonsContainer.style.alignItems = 'center'; // Центрируем кнопки
+    buttonsContainer.style.flexDirection = 'column';
+    buttonsContainer.style.alignItems = 'center';
     controlsContainer.appendChild(buttonsContainer);
 
     const pauseButton = document.createElement('button');
