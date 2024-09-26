@@ -20,18 +20,20 @@ const GAME_SETTINGS = {
 function createMenu() {
     const controlsContainer = document.createElement('div');
     controlsContainer.style.position = 'fixed';
-    controlsContainer.style.top = '0';
-    controlsContainer.style.left = '50%';
-    controlsContainer.style.transform = 'translateX(-50%)';
+    controlsContainer.style.top = '50%';
+    controlsContainer.style.left = '0';
+    controlsContainer.style.transform = 'translateY(-50%)';
     controlsContainer.style.zIndex = '9999';
     controlsContainer.style.backgroundColor = 'black';
     controlsContainer.style.padding = '10px 20px';
     controlsContainer.style.borderRadius = '10px';
+    controlsContainer.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
     document.body.appendChild(controlsContainer);
 
     const buttonsContainer = document.createElement('div');
     buttonsContainer.style.display = 'flex';
-    buttonsContainer.style.justifyContent = 'center';
+    buttonsContainer.style.flexDirection = 'column';
+    buttonsContainer.style.alignItems = 'center';
     controlsContainer.appendChild(buttonsContainer);
 
     const pauseButton = document.createElement('button');
@@ -42,7 +44,7 @@ function createMenu() {
     pauseButton.style.border = 'none';
     pauseButton.style.borderRadius = '10px';
     pauseButton.style.cursor = 'pointer';
-    pauseButton.style.marginRight = '5px';
+    pauseButton.style.marginBottom = '5px';
     pauseButton.onclick = togglePause;
     buttonsContainer.appendChild(pauseButton);
 
@@ -143,7 +145,7 @@ function randomClick() {
             setTimeout(randomClick, nextClickDelay);
         }
     } else {
-        console.log('Drawing window not found. Attempting to open.');
+        console.log('Drawing window not found. Attempting to open it.');
         openPaintWindow();
         setTimeout(randomClick, 2000);
     }
@@ -167,3 +169,4 @@ function startScript() {
 }
 
 checkGameCrash();
+
