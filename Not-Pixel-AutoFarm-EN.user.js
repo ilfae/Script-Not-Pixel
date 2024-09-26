@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Not Pixel AutoFarm
+// @name         Not-Pixel-AutoFarm-EN
 // @namespace    KittenWoof
 // @match        *://*notpx.app/*
 // @version      1.2
@@ -21,12 +21,12 @@ function createMenu() {
     const controlsContainer = document.createElement('div');
     controlsContainer.style.position = 'fixed';
     controlsContainer.style.top = '0';
-    controlsContainer.style.left = '50%';
-    controlsContainer.style.transform = 'translateX(-50%)';
+    controlsContainer.style.right = '0';
     controlsContainer.style.zIndex = '9999';
     controlsContainer.style.backgroundColor = 'black';
     controlsContainer.style.padding = '10px 20px';
     controlsContainer.style.borderRadius = '10px';
+    controlsContainer.style.cursor = 'move';
     document.body.appendChild(controlsContainer);
 
     const buttonsContainer = document.createElement('div');
@@ -75,6 +75,30 @@ function createMenu() {
     };
 
     OutGamePausedTrue();
+
+    // Dragging the menu
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    controlsContainer.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        offsetX = e.clientX - controlsContainer.getBoundingClientRect().left;
+        offsetY = e.clientY - controlsContainer.getBoundingClientRect().top;
+        document.body.style.userSelect = 'none';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            const newRight = window.innerWidth - (e.clientX - offsetX);
+            controlsContainer.style.right = `${newRight}px`;
+            controlsContainer.style.top = `${e.clientY - offsetY}px`;
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        document.body.style.userSelect = ''; // Enable text selection after dragging
+    });
 }
 
 createMenu();
@@ -104,13 +128,11 @@ function openPaintWindow() {
         const centerX = Math.floor(canvas.width / 2);
         const centerY = Math.floor(canvas.height / 2);
         simulatePointerEvents(canvas, centerX, centerY, centerX, centerY);
-        console.log('Attempting to open the drawing window');
     });
 }
 
 function randomClick() {
     if (GAME_SETTINGS.isPaused) {
-        console.log('Script is paused.');
         setTimeout(randomClick, 1000);
         return;
     }
@@ -121,12 +143,11 @@ function randomClick() {
 
         if (buttonText === 'Paint') {
             waitForElement('#canvasHolder', (canvas) => {
-                // Random map movement
-                const moveX = Math.floor(Math.random() * 200) - 100; // From -100 to 100
-                const moveY = Math.floor(Math.random() * 200) - 100; // From -100 to 100
+
+                const moveX = Math.floor(Math.random() * 200) - 100;
+                const moveY = Math.floor(Math.random() * 200) - 100;
                 simulatePointerEvents(canvas, canvas.width / 2, canvas.height / 2, canvas.width / 2 + moveX, canvas.height / 2 + moveY);
 
-                // Random point for drawing
                 const x = Math.floor(Math.random() * canvas.width);
                 const y = Math.floor(Math.random() * canvas.height);
                 simulatePointerEvents(canvas, x, y, x, y);
@@ -136,7 +157,7 @@ function randomClick() {
                 setTimeout(randomClick, nextClickDelay);
             });
         } else if (buttonText === 'No energy') {
-            const randomPause = Math.floor(Math.random() * 120000) + 60000; // From 60000 ms (1 minute) to 180000 ms (3 minutes)
+            const randomPause = Math.floor(Math.random() * 120000) + 60000;
             console.log(`No energy. Random pause: ${randomPause} ms.`);
             setTimeout(randomClick, randomPause);
         } else {
@@ -144,7 +165,6 @@ function randomClick() {
             setTimeout(randomClick, nextClickDelay);
         }
     } else {
-        console.log('Drawing window not found. Attempting to open.');
         openPaintWindow();
         setTimeout(randomClick, 2000);
     }
@@ -155,7 +175,7 @@ function checkGameCrash() {
 
     const crashElement = document.querySelector('div._container_ieygs_8');
     if (crashElement) {
-        console.log('Game crashed. Reloading the page.');
+        console.log('The game crashed. Reloading the page.');
         location.reload();
     } else {
         setTimeout(checkGameCrash, 2000);
@@ -175,3 +195,4 @@ function OutGamePausedTrue() {
 }
 
 startScript();
+
