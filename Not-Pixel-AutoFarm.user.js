@@ -21,12 +21,12 @@ function createMenu() {
     const controlsContainer = document.createElement('div');
     controlsContainer.style.position = 'fixed';
     controlsContainer.style.top = '0';
-    controlsContainer.style.left = '50%';
-    controlsContainer.style.transform = 'translateX(-50%)';
+    controlsContainer.style.right = '0';
     controlsContainer.style.zIndex = '9999';
     controlsContainer.style.backgroundColor = 'black';
     controlsContainer.style.padding = '10px 20px';
     controlsContainer.style.borderRadius = '10px';
+    controlsContainer.style.cursor = 'move';
     document.body.appendChild(controlsContainer);
 
     const buttonsContainer = document.createElement('div');
@@ -75,9 +75,34 @@ function createMenu() {
     };
 
     OutGamePausedTrue();
+
+    // Перемещение меню
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    controlsContainer.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        offsetX = e.clientX - controlsContainer.getBoundingClientRect().left;
+        offsetY = e.clientY - controlsContainer.getBoundingClientRect().top;
+        document.body.style.userSelect = 'none';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            const newRight = window.innerWidth - (e.clientX - offsetX);
+            controlsContainer.style.right = `${newRight}px`;
+            controlsContainer.style.top = `${e.clientY - offsetY}px`;
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        document.body.style.userSelect = ''; // Включение выделения текста после завершения перетаскивания
+    });
 }
 
 createMenu();
+
 
 function waitForElement(selector, callback) {
     const element = document.querySelector(selector);
@@ -104,13 +129,11 @@ function openPaintWindow() {
         const centerX = Math.floor(canvas.width / 2);
         const centerY = Math.floor(canvas.height / 2);
         simulatePointerEvents(canvas, centerX, centerY, centerX, centerY);
-        console.log('Попытка открыть окно рисования');
     });
 }
 
 function randomClick() {
     if (GAME_SETTINGS.isPaused) {
-        console.log('Скрипт на паузе.');
         setTimeout(randomClick, 1000);
         return;
     }
@@ -121,12 +144,11 @@ function randomClick() {
 
         if (buttonText === 'Paint') {
             waitForElement('#canvasHolder', (canvas) => {
-                // Случайное перемещение карты
-                const moveX = Math.floor(Math.random() * 200) - 100; // От -100 до 100
-                const moveY = Math.floor(Math.random() * 200) - 100; // От -100 до 100
+
+                const moveX = Math.floor(Math.random() * 200) - 100;
+                const moveY = Math.floor(Math.random() * 200) - 100;
                 simulatePointerEvents(canvas, canvas.width / 2, canvas.height / 2, canvas.width / 2 + moveX, canvas.height / 2 + moveY);
 
-                // Случайная точка для рисования
                 const x = Math.floor(Math.random() * canvas.width);
                 const y = Math.floor(Math.random() * canvas.height);
                 simulatePointerEvents(canvas, x, y, x, y);
@@ -136,7 +158,7 @@ function randomClick() {
                 setTimeout(randomClick, nextClickDelay);
             });
         } else if (buttonText === 'No energy') {
-            const randomPause = Math.floor(Math.random() * 120000) + 60000; // От 60000 мс (1 минута) до 180000 мс (3 минуты)
+            const randomPause = Math.floor(Math.random() * 120000) + 60000;
             console.log(`Нет энергии. Рандомная пауза: ${randomPause} мс.`);
             setTimeout(randomClick, randomPause);
         } else {
@@ -144,7 +166,6 @@ function randomClick() {
             setTimeout(randomClick, nextClickDelay);
         }
     } else {
-        console.log('Окно рисования не найдено. Попытка открыть.');
         openPaintWindow();
         setTimeout(randomClick, 2000);
     }
