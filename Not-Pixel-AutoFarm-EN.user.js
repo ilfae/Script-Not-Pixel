@@ -2,7 +2,7 @@
 // @name         Not-Pixel-AutoFarm-EN
 // @namespace    KittenWoof
 // @match        *://*notpx.app/*
-// @version      1.1
+// @version      1.2
 // @grant        KittenWoof
 // @icon         https://notpx.app/favicon.ico
 // @downloadURL  https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-AutoFarmr-EN.use.js
@@ -110,7 +110,7 @@ function openPaintWindow() {
         const centerX = Math.floor(canvas.width / 2);
         const centerY = Math.floor(canvas.height / 2);
         simulatePointerEvents(canvas, centerX, centerY, centerX, centerY);
-        console.log('Attempting to open a drawing window');
+        console.log('Attempting to open the drawing window');
     });
 }
 
@@ -136,14 +136,14 @@ function randomClick() {
                 setTimeout(randomClick, nextClickDelay);
             });
         } else if (buttonText === 'No energy') {
-            console.log('No power. Pause for one minute.');
+            console.log('No energy. Pausing for 1 minute.');
             setTimeout(randomClick, 60000);
         } else {
             const nextClickDelay = Math.floor(Math.random() * 1000) + 1000;
             setTimeout(randomClick, nextClickDelay);
         }
     } else {
-        console.log('The drawing window is not found. Trying to open.');
+        console.log('Drawing window not found. Attempting to open.');
         openPaintWindow();
         setTimeout(randomClick, 2000);
     }
@@ -154,7 +154,7 @@ function checkGameCrash() {
 
     const crashElement = document.querySelector('div._container_ieygs_8');
     if (crashElement) {
-        console.log('The game is out. Page refresh.');
+        console.log('Game crashed. Reloading the page.');
         location.reload();
     } else {
         setTimeout(checkGameCrash, 2000);
