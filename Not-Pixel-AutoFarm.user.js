@@ -2,7 +2,7 @@
 // @name         Not Pixel AutoFarm
 // @namespace    KittenWoof
 // @match        *://*notpx.app/*
-// @version      1.3
+// @version      1.4
 // @grant        none
 // @icon         https://notpx.app/favicon.ico
 // @downloadURL  https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-AutoFarm.user.js
@@ -139,7 +139,7 @@ function randomClick() {
 
   GAME_SETTINGS.isClickInProgress = true;
 
-  const paintButton = document.evaluate('//*[@id="root"]/div/div[5]/div/button', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+  const paintButton = document.evaluate('//*[@id="root"]/div/div[6]/div/button', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
   if (paintButton) {
     const buttonText = paintButton.querySelector('span[class^="_button_text_"]').textContent;
 
@@ -258,12 +258,12 @@ function changeColor() {
           const randomColor = colors[Math.floor(Math.random() * colors.length)];
           setTimeout(() => triggerEvents(randomColor), 1000);
 
-          const activeColor = document.evaluate('//*[@id="root"]/div/div[5]/div/div[2]/div[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          const activeColor = document.evaluate('//*[@id="root"]/div/div[6]/div/div[2]/div[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           setTimeout(() => triggerEvents(activeColor), 2000);
           return;
       }
 
-      const activeColor = document.evaluate('//*[@id="root"]/div/div[5]/div/div[2]/div[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const activeColor = document.evaluate('//*[@id="root"]/div/div[6]/div/div[2]/div[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (!activeColor) {
           setTimeout(tryChangeColor, 1000);
           return;
