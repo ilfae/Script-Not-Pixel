@@ -2,7 +2,7 @@
 // @name         Not Pixel AutoFarm
 // @namespace    KittenWoof
 // @match        *://*notpx.app/*
-// @version      1.4
+// @version      1.5
 // @grant        none
 // @icon         https://notpx.app/favicon.ico
 // @downloadURL  https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-AutoFarm.user.js
@@ -21,13 +21,16 @@ const GAME_SETTINGS = {
   autoChangeColorEnabled: false,
   autoChangeColorMinDelay: 120000,
   autoChangeColorMaxDelay: 600000,
-  isPaused: true,
+  isPaused: false,
   interval: 1000,
   timer: null,
   countdown: null,
   isClickInProgress: false,
   noEnergyTimeout: null
 };
+
+
+
 
 function createMenu() {
   const controlsContainer = document.createElement('div');
@@ -186,60 +189,47 @@ function getRandomDelay(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+
 function autoClaimReward() {
   if (GAME_SETTINGS.isPaused || !GAME_SETTINGS.autoClaimEnabled) {
-      return;
-  }
-
-  function tryClaimReward() {
-      const openRewardButton = document.querySelector('button._button_184v8_1');
-      if (!openRewardButton) {
-          setTimeout(tryClaimReward, 1000);
-          return;
-      }
-      triggerEvents(openRewardButton);
-
-      const loadingInfo = document.querySelector('div._container_3i6l4_1 > div._info_3i6l4_32');
-      const claimButton = document.querySelector('button._button_3i6l4_11');
-
-      if (loadingInfo && loadingInfo.textContent === 'Loading...') {
-          setTimeout(() => {
-              const loadingInfoCheck = document.querySelector('div._container_3i6l4_1 > div._info_3i6l4_32');
-              if (loadingInfoCheck && loadingInfoCheck.textContent === 'Loading...') {
-                  const exitButton = document.querySelector('button._button_1cryl_1');
-                  if (exitButton) {
-                      triggerEvents(exitButton);
-                  }
-                  const nextClaimDelay = getRandomDelay(GAME_SETTINGS.autoClaimMinDelay, GAME_SETTINGS.autoClaimMaxDelay);
-                  setTimeout(tryClaimReward, nextClaimDelay);
-              } else {
-                  setTimeout(tryClaimReward, 1000);
-              }
-          }, 10000);
-          return;
-      }
-
-      if (claimButton && claimButton.textContent.includes('Claim')) {
-          triggerEvents(claimButton);
-      }
-
-      const claimInInfo = document.querySelector('div._info_3i6l4_32');
-      if (claimInInfo && claimInInfo.textContent.includes('CLAIM IN')) {
-          const exitButton = document.querySelector('button._button_1cryl_1');
-          if (exitButton) {
-              triggerEvents(exitButton);
-          }
-
-          const nextClaimDelay = getRandomDelay(GAME_SETTINGS.autoClaimMinDelay, GAME_SETTINGS.autoClaimMaxDelay);
-          setTimeout(tryClaimReward, nextClaimDelay);
-          return;
-      }
-
-      setTimeout(tryClaimReward, 1000);
+    return;
   }
 
   tryClaimReward();
+
+  function tryClaimReward() {
+    const openRewardButton = document.querySelector('button._button_tksty_1');
+    const claimTimer = document.querySelector('div._info_3i6l4_32');
+    const loadingInfo = document.querySelector('div._container_3i6l4_1 > div._info_3i6l4_32');
+
+    if (claimTimer && (claimTimer.textContent.includes('CLAIM IN') || (loadingInfo && loadingInfo.textContent === 'Loading...'))) {
+      const exitButton = document.querySelector('button._button_1cryl_1');
+      if (exitButton) {
+        triggerEvents(exitButton);
+      }
+    } else if (openRewardButton) {
+      triggerEvents(openRewardButton);
+
+      setTimeout(() => {
+        const claimButton = document.querySelector('button._button_3i6l4_11');
+        if (claimButton) {
+          triggerEvents(claimButton);
+
+          setTimeout(() => {
+            const exitButton = document.querySelector('button._button_1cryl_1');
+            if (exitButton) {
+              triggerEvents(exitButton);
+            }
+          }, 1000);
+        }
+      }, 2000);
+    }
+
+    setTimeout(tryClaimReward, 300000);
+  }
 }
+
+
 
 function changeColor() {
   if (GAME_SETTINGS.isPaused || !GAME_SETTINGS.autoChangeColorEnabled) {
