@@ -2,7 +2,7 @@
 // @name         Not Pixel AutoFarm
 // @namespace    KittenWoof
 // @match        *://*notpx.app/*
-// @version      1.5
+// @version      1.6
 // @grant        none
 // @icon         https://notpx.app/favicon.ico
 // @downloadURL  https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-AutoFarm.user.js
