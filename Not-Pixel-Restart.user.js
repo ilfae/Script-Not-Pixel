@@ -4,6 +4,9 @@
 // @match        *://*notpx.app/*
 // @match        https://web.telegram.org/*
 // @icon         https://notpx.app/favicon.ico
+// @downloadURL  https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-Restart.user.js
+// @updateURL    https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-Restart.user.js
+// @homepage     https://github.com/ilfae/Script-Not-Pixel
 // @grant        none
 // ==/UserScript==
 
