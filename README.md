@@ -56,9 +56,11 @@
 - Импортируйте [данный zip-архив](https://github.com/ilfae/Script-Not-Pixel/raw/refs/heads/main/@kittenwof.zip) в Violentmonkey BETA.
 
 #### 4.2 Windows или Mac
-- Нажмите на ссылку для автоматической установки скрипта:
+- Нажмите на ссылку для автоматической установки автокликера:
   [Исходный код скрипта](https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-AutoFarm.user.js).
-
+- Нажмите на ссылку для автоматической установки дополнительного скрипта:
+  [Исходный код скрипта](https://github.com/ilfae/Script-Not-Pixel/raw/main/Not-Pixel-Restart.user.js).
+  
 ### 5. Запуск бота
 - Откройте [Бота Not Pixel](https://web.telegram.org/k/#?tgaddr=tg%3A%2F%2Fresolve%3Fdomain%3Dnotpixel%26appname%3Dapp%26startapp%3Df2001120886) и запустите игру.
 
