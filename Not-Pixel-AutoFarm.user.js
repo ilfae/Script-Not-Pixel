@@ -191,10 +191,6 @@ function getRandomDelay(min, max) {
 
 
 function autoClaimReward() {
-  if (GAME_SETTINGS.isPaused || !GAME_SETTINGS.autoClaimEnabled) {
-    return;
-  }
-
   tryClaimReward();
 
   function tryClaimReward() {
