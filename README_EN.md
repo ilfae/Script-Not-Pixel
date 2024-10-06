@@ -64,6 +64,8 @@ This script is designed for the game Not Pixel.
 ### 5. Running the Bot
 - Open [Not Pixel Bot](https://web.telegram.org/k/#?tgaddr=tg%3A%2F%2Fresolve%3Fdomain%3Dnotpixel%26appname%3Dapp%26startapp%3Df2001120886) and start the game.
 
+  └ Works only in this version of the site, it is also the "K" version, in the "A" version of the site the restart does not work
+
 ## Conclusion
 
 You can now use the script to automate clicks in Not Pixel across different platforms. Good luck!
