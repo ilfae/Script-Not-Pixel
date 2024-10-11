@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Not Pixel Restart
-// @version      1.1
+// @version      1.2
 // @match        *://*notpx.app/*
 // @match        https://web.telegram.org/*
 // @icon         https://notpx.app/favicon.ico
