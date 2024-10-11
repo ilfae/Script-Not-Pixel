@@ -32,5 +32,5 @@
       }
     }
 
-    setInterval(restartProcess, 1200000);
+    setInterval(restartProcess, 800000);
 })();
